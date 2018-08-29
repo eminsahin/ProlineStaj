@@ -8,11 +8,14 @@ namespace StokProgramiApp
 {
     class Product
     {
+
         public int id { get; set; }
         public string Name { get; set; }
         public int id_product_type { get; set; }
         public string serial_no { get; set; }
+        public byte image { get; set; }
         public int product_stock { get; set; }
+        
 
     }
 }

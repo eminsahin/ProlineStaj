@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7e69ff0312d47058c19fea3cf03ed10" Name="Diagram1">
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.Authorization" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.Product" Width="1.5" PointX="10.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.ProductType" Width="1.5" PointX="8" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.Role" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.Stock" Width="1.5" PointX="12.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.UnitType" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokKontrolProgramiModel.UserType" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_Authorization_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_Authorization_User" ManuallyRouted="false" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_Stock_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_ProductType_UnitType1" ManuallyRouted="false" />
+        <AssociationConnector Association="StokKontrolProgramiModel.FK_User_UserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

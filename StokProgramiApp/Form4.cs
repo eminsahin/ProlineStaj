@@ -22,53 +22,67 @@ namespace StokProgramiApp
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private static readonly HttpClient client = new HttpClient();
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
+           
 
 
-          //  using (var client = new HttpClient())
-          //  {
-              //  var objProduct = new Product();
-              //  objProduct.Name = "textBox1";
-              //  objProduct.serial_no = "textBox2";
-              //  string json = JsonConvert.SerializeObject(objProduct);
-              //  var content = new StringContent(json);
-              //  var result = await client.PostAsync("http://localhost:54012/api/Products/", content);
-              //  var responseAsString = await result.Content.ReadAsStringAsync();
-          //  }
-            // public async Task<Product> SaveProduct(Product product)
-            // {
-            //    using (var client = new HttpClient())
-            //     {
-            //         client.BaseAddress = new Uri("http://localhost:54012/");
-            //         client.DefaultRequestHeaders.Accept.Clear();
-            //         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //
-            //         StringContent content = new StringContent(JsonConvert.SerializeObject(product));
-            //         // HTTP POST
-            //         HttpResponseMessage response = await client.PostAsync("api/Products/", content);
-            //         if (response.IsSuccessStatusCode)
-            //         {
-            //             string data = await response.Content.ReadAsStringAsync();
-            //             product = JsonConvert.DeserializeObject<Product>(data);
-            //         }
-            //     }
-            //     return product;
-            //  using (var client = new HttpClient())
-            //  {
-            //      Product p = new Product { Name = "textBox1_TextChanged", id_product_type = Convert.ToInt32(textBox2.Text), serial_no = "textBox3_TextChanged", product_stock= Convert.ToInt32(textBox4.Text) };
-            //      client.BaseAddress = new Uri("http://localhost:54012/");
-            //      var response = client.PostAsJsonAsync("api/Products/s", p).Result;
-            //    if (response.IsSuccessStatusCode)
-            //     {
-            //         MessageBox.Show("Success");
-            //     }
-            //     else
-            //         MessageBox.Show("Fail");
-            //  }
+        //  using (var client = new HttpClient())
+        //  {
+        //  var objProduct = new Product();
+        //  objProduct.Name = "textBox1";
+        //  objProduct.serial_no = "textBox2";
+        //  string json = JsonConvert.SerializeObject(objProduct);
+        //  var content = new StringContent(json);
+        //  var result = await client.PostAsync("http://localhost:54012/api/Products/", content);
+        //  var responseAsString = await result.Content.ReadAsStringAsync();
+        //  }
+        // public async Task<Product> SaveProduct(Product product)
+        // {
+        //    using (var client = new HttpClient())
+        //     {
+        //         client.BaseAddress = new Uri("http://localhost:54012/");
+        //         client.DefaultRequestHeaders.Accept.Clear();
+        //         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //
+        //         StringContent content = new StringContent(JsonConvert.SerializeObject(product));
+        //         // HTTP POST
+        //         HttpResponseMessage response = await client.PostAsync("api/Products/", content);
+        //         if (response.IsSuccessStatusCode)
+        //         {
+        //             string data = await response.Content.ReadAsStringAsync();
+        //             product = JsonConvert.DeserializeObject<Product>(data);
+        //         }
+        //     }
+        //     return product;
+        //using (var client = new HttpClient())
+        //{
+        //    Product p = new Product { Name = "textBox1_TextChanged", id_product_type = Convert.ToInt32(textBox2.Text), serial_no = "textBox3_TextChanged", product_stock= Convert.ToInt32(textBox4.Text) };
+        //    client.BaseAddress = new Uri("http://localhost:54012/");
+        //    var response = client.PostAsJsonAsync("api/Products/s", p).Result;
+        var values = new Dictionary<string, string>
+                {
+                    { "name", textBox1.Text },
+                    { "id_product_type", textBox2.Text },
+                    {"serial_no", textBox3.Text },
+                    {"product_stock", textBox4.Text }
+                };
 
-        }
+            var content = new FormUrlEncodedContent(values);
+
+            var response = await client.PostAsync("http://localhost:54012/api/Products/1", content);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+                 {
+                     MessageBox.Show("Success");
+                 }
+                 else
+                     MessageBox.Show("Fail");
+            }
+
+        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -103,6 +117,11 @@ namespace StokProgramiApp
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
